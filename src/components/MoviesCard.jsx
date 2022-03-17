@@ -1,8 +1,11 @@
 import s from "./MovieCard.module.css"
 import { Link } from "react-router-dom"
+import placeholder from"../placeholder.jpeg"
 
 export function MovieCard({ movie }) {
-    const imageUrl = "https://image.tmdb.org/t/p/w300" + movie.poster_path
+    const imageUrl = movie.poster_path 
+    ? "https://image.tmdb.org/t/p/w300" + movie.poster_path
+     : placeholder
     return (
         <li className={s.movieCard}>
             <Link to={"/movies/"+movie.id}>
